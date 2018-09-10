@@ -70,13 +70,4 @@ public class UserAccount implements Serializable{
 	public void setPassword(String password) {
 		this.password = password;
 	}
-
-//	public boolean setPassword1(String password) {
-//		if(!validatePassword(password)) {
-//			return false;
-//		}
-//		this.password = password;
-//		return true;
-//	}
-
 }

@@ -33,8 +33,7 @@ public class Login extends Stage{
         Label passwordLabel = new Label("Password");
         PasswordField passwordField = new PasswordField();
         passwordField.setPromptText("Enter password here.");
-        String inputPassword = passwordField.getText();
-
+        
         Label statusLabel= new Label("Incorrect username or password");
 	    statusLabel.setFont(Font.font("Tahoma", FontWeight.BOLD, 18));
 	    statusLabel.setVisible(false);
@@ -43,11 +42,13 @@ public class Login extends Stage{
         loginButton.setDefaultButton(true);
         loginButton.setOnAction(event -> {
             String inputName = usernameField.getText();
+            String inputPassword = passwordField.getText();
             boolean userExist = false;
             for(UserAccount userAccount: UserAccountManager.accountManager) {
                 String userName = userAccount.getUsername();
                 String email = userAccount.getEmail();
                 String userPassword = userAccount.getPassword();
+
                 if(userName.equals(inputName) || email.equals(inputName)) {
                     userExist = true;
                     if(userPassword.equals(inputPassword)) {
