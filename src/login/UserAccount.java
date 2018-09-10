@@ -59,15 +59,23 @@ public class UserAccount implements Serializable{
 		return true;
 	}
 
-	public boolean setUsername(String username) {
-		if(!validUsername(username)) {
-			return false;
-		}
+	public void setUsername(String username) {
 		this.userName = username;
-		return true;
 	}
 
 	public void setPassword(String password) {
 		this.password = password;
 	}
+	public boolean isValidCredential(String userName, String password) {
+        return matchUserName(userName) && matchPassword(password);
+   }
+   
+   public boolean matchUserName(String userName) {
+        return userName != null && userName.equals(this.userName);
+   }
+   
+   private boolean matchPassword(String password) {
+       return password != null && password.equals(this.password);
+  }
+
 }
