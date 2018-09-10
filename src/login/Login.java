@@ -12,6 +12,7 @@ import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
+import sun.security.util.Password;
 
 public class Login extends Stage{
     public Login(){
@@ -32,6 +33,7 @@ public class Login extends Stage{
         Label passwordLabel = new Label("Password");
         PasswordField passwordField = new PasswordField();
         passwordField.setPromptText("Enter password here.");
+        String inputPassword = passwordField.getText();
 
         Label statusLabel= new Label("Incorrect username or password");
 	    statusLabel.setFont(Font.font("Tahoma", FontWeight.BOLD, 18));
@@ -45,9 +47,10 @@ public class Login extends Stage{
             for(UserAccount userAccount: UserAccountManager.accountManager) {
                 String userName = userAccount.getUsername();
                 String email = userAccount.getEmail();
+                String userPassword = userAccount.getPassword();
                 if(userName.equals(inputName) || email.equals(inputName)) {
                     userExist = true;
-                    if(userAccount.getPassword() != null) {
+                    if(userPassword.equals(inputPassword)) {
 	                    statusLabel.setText("Login successful!");
 	                    statusLabel.setTextFill(Color.FORESTGREEN);
 	                    statusLabel.setVisible(true);
