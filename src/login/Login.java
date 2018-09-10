@@ -47,7 +47,7 @@ public class Login extends Stage{
                 String email = userAccount.getEmail();
                 if(userName.equals(inputName) || email.equals(inputName)) {
                     userExist = true;
-                    if(userAccount.getPassword().checkPassword(passwordField.getText())) {
+                    if(userAccount.getPassword() != null) {
 	                    statusLabel.setText("Login successful!");
 	                    statusLabel.setTextFill(Color.FORESTGREEN);
 	                    statusLabel.setVisible(true);

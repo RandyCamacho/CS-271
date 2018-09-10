@@ -3,6 +3,8 @@ package login;
 import java.io.Serializable;
 import java.util.regex.Pattern;
 
+import sun.security.util.Password;
+
 public class UserAccount implements Serializable{
 	private String userName;
 	private Password password;
@@ -10,7 +12,7 @@ public class UserAccount implements Serializable{
 
 	public UserAccount(String username, String password, String email) {
 		this.userName = username;
-		this.password = new Password(password);
+		this.password = new Password();
 		this.email = email;
 	}
 
@@ -75,7 +77,7 @@ public class UserAccount implements Serializable{
 		if(!validatePassword(password)) {
 			return false;
 		}
-		this.password = new Password(password, this.password);
+		this.password = new Password();
 		return true;
 	}
 
