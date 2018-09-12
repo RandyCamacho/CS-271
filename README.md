@@ -36,6 +36,18 @@ Runs 2 tests:
 * Check to see if an existing account can be found in the manager.
 * Check to see that an unregistered account does not return a false positive.
 
+## Contributing
+
+If you are unfamiliar with git (command line tool), download [Github Desktop Application](https://desktop.github.com/).
+
+```
+Login to your github account in the application. Click File > Clone. If you do not see the "youngmamba8/CS-271" repository, accept your [invitation](https://github.com/youngmamba8/CS-271/invitations).
+Clone the repository into your eclipse-workspace directory.
+```
+
+You should now be able to edit the source code in the src folder after importing to eclipse (see installing).
+When you make changes, commit with a comment. Then press the "push" button.
+
 ## Authors
 
 * **Toby Bower** - *Initial work* [lukeblood](https://github.com/lukeblood)
