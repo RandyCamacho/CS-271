@@ -31,7 +31,7 @@ public class UserAccount implements Serializable{
 	 * @return True if meets length requirements, false otherwise
 	 */
 	public static boolean validUsername(String username) {
-		return username.length() >= 3 || username.length() <= 16;
+		return username.length() >= 3 && username.length() <= 16;
 	}
 
 	/**
