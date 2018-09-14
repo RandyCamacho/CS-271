@@ -13,12 +13,24 @@ import javafx.stage.Stage;
 import java.io.FileNotFoundException;
 import java.util.regex.Pattern;
 
+/**
+ * The JavaFX welcome screen for user login.
+ * @author youngmamba8
+ *
+ */
 public class Welcome extends Application {
 
+	/**
+	 * Main method for the project.
+	 * @param args
+	 */
 	public static void main(String[] args) {
 		launch(args);
 	}
 
+	/**
+	 * Tries to read the database, and runs the initializeGUI() method.
+	 */
 	@Override
 	public void start(Stage openingPage) {
 		try {
@@ -30,6 +42,9 @@ public class Welcome extends Application {
 		initializeGUI(openingPage);
 	}
 
+	/**
+	 * Shows options to login and sign up to the user.
+	 */
 	private static void initializeGUI(Stage openingPage) {
 		openingPage.setTitle("Welcome!");
 		openingPage.setResizable(false);
