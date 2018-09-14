@@ -12,11 +12,18 @@ public class UserAccountTest extends TestCase {
 
 	private UserAccount userAccount;
 	
+	/*
+	 * Construct example user account.
+	 */
+	protected void setUp() throws Exception {
+		super.setUp();
+		userAccount = new UserAccount("johndoe", "12345678", "johndoe@example.com");
+	}
+	
 	/**
 	 * Tests the creation of a new account.
 	 */
 	public void testNewAccount() {
-		userAccount = new UserAccount("johndoe", "12345678", "johndoe@example.com");
 		assertNotNull(userAccount);
 		assertTrue(userAccount.matchUserName("johndoe"));
 		assertTrue(userAccount.isValidCredential("johndoe", "12345678"));
@@ -31,7 +38,7 @@ public class UserAccountTest extends TestCase {
 		assertTrue(UserAccount.validUsername("johndoe"));
 	}
 	
-	// TODO: Test usernameExists()
+//	 TODO: Test usernameExists()
 //	public void testUserNameExists() {
 //		assertTrue(UserAccount.usernameExists("johndoe"));
 //	}
@@ -62,7 +69,6 @@ public class UserAccountTest extends TestCase {
 	 * Tests the getUsername() method.
 	 */
 	public void testGetUsername() {
-		userAccount = new UserAccount("johndoe", "12345678", "johndoe@example.com");
 		assertNotNull(userAccount);
 		assertEquals(userAccount.getUsername(), "johndoe");
 	}
@@ -71,7 +77,6 @@ public class UserAccountTest extends TestCase {
 	 * Tests the getPassword() method.
 	 */
 	public void testGetPassword() {
-		userAccount = new UserAccount("johndoe", "12345678", "johndoe@example.com");
 		assertNotNull(userAccount);
 		assertEquals(userAccount.getPassword(), "12345678");
 	}
@@ -80,12 +85,47 @@ public class UserAccountTest extends TestCase {
 	 * Tests the getEmail() method.
 	 */
 	public void testGetEmail() {
-		userAccount = new UserAccount("johndoe", "12345678", "johndoe@example.com");
 		assertNotNull(userAccount);
 		assertEquals(userAccount.getEmail(), "johndoe@example.com");
 	}
 	
 	// TODO: Test setters, also having trouble avoiding NullPointerException(s) here
 	
+	/**
+	 * Tests the setEmail() method.
+	 */
+	public void testSetEmail() {
+		assertNotNull(userAccount);
+		assertTrue(userAccount.setEmail("johndoe@boisestate.edu"));
+		assertEquals(userAccount.getEmail(), "johndoe@boisestate.edu");
+	}
+	
+	/**
+	 * Tests the setUsername() method.
+	 */
+	public void testSetUsername() {
+		assertNotNull(userAccount);
+		userAccount.setUsername("janedoe");
+		assertEquals(userAccount.getUsername(), "janedoe");
+	}
+	
+	/**
+	 * Tests the setPassword() method.
+	 */
+	public void testSetPassword() {
+		assertNotNull(userAccount);
+		userAccount.setPassword("87654321");
+		assertEquals(userAccount.getPassword(), "87654321");
+	}
+	
 	// TODO: Test authentication methods
+	
+	/**
+	 * Tests isValidCredential() method, and by reference: matchUserName()
+	 * and matchPassword()
+	 */
+	public void testIsValidCredential() {
+		assertNotNull(userAccount);
+		assertTrue(userAccount.isValidCredential("johndoe", "12345678"));
+	}
 }
