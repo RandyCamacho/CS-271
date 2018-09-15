@@ -1,5 +1,6 @@
 package login;
 
+
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
@@ -12,7 +13,6 @@ import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
-import sun.security.util.Password;
 
 public class Login extends Stage{
     public Login(){
@@ -37,6 +37,14 @@ public class Login extends Stage{
         Label statusLabel= new Label("Incorrect username or password");
 	    statusLabel.setFont(Font.font("Tahoma", FontWeight.BOLD, 18));
 	    statusLabel.setVisible(false);
+	    
+//Hyperlink for forgot UserName
+	    
+	    Hyperlink forgotUsernameLink = new Hyperlink("Forgot Username");
+        forgotUsernameLink.setOnAction(event -> {
+            ForgotUserName forgotUsername = new ForgotUserName(usernameField);
+            forgotUsername.showAndWait();
+        });
 
         Button loginButton = new Button("Login");
         loginButton.setDefaultButton(true);
@@ -64,6 +72,7 @@ public class Login extends Stage{
                     }
                 }
             }
+            
             if(!userExist) {
 	            Alert popUp = new Alert(Alert.AlertType.WARNING, "Incorrect username or password");
 	            statusLabel.setText("Incorrect username or password");
@@ -71,10 +80,10 @@ public class Login extends Stage{
                 statusLabel.setVisible(true);
             }
         });
-
+        
         Button signUpButton = new Button("Sign Up");
         signUpButton.setOnAction(event -> {
-            //  Present a sign up form for a new user
+//  Present a sign up form for a new user
             SignUp signUp = new SignUp();
             signUp.show();
         });
@@ -83,6 +92,7 @@ public class Login extends Stage{
         mainPane.add(headerText, 0, 1);
         mainPane.add(usernameLabel, 0, 2);
         mainPane.add(new VBox(usernameField), 0, 3);
+        mainPane.add(new VBox(usernameField, forgotUsernameLink), 0, 3);
         mainPane.add(passwordLabel, 0, 4);
         mainPane.add(new VBox(passwordField), 0, 5);
 
