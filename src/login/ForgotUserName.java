@@ -15,7 +15,17 @@ import javafx.scene.text.Text;
 import javafx.scene.text.TextFlow;
 import javafx.stage.Stage;
 
+/**
+ * Forgot Username user-story implementation
+ * @author youngmamba8
+ *
+ */
 public class ForgotUserName extends Stage{
+	
+	/**
+	 * Constructor for GUI
+	 * @param loginUsernameField
+	 */
 	public ForgotUserName(TextField loginUsernameField) {
 		super();
 
