@@ -14,7 +14,16 @@ import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
+/**
+ * Login GUI.
+ * @author youngmamba8, quinnshultz
+ *
+ */
 public class Login extends Stage{
+	
+	/**
+	 * Construct a login screen seperate from the Welcome screen.
+	 */
     public Login(){
         super();
 
@@ -23,7 +32,9 @@ public class Login extends Stage{
         mainPane.setVgap(15);
         mainPane.setPadding(new Insets(50));
         mainPane.setAlignment(Pos.CENTER);
-// Login page
+        
+        // Login page
+        
         Text headerText = new Text("Enter username or email and password.");
 
         Label usernameLabel = new Label("Username or email");
@@ -38,12 +49,20 @@ public class Login extends Stage{
 	    statusLabel.setFont(Font.font("Tahoma", FontWeight.BOLD, 18));
 	    statusLabel.setVisible(false);
 	    
-//Hyperlink for forgot UserName
+	    // Hyperlink for forgot UserName
 	    
 	    Hyperlink forgotUsernameLink = new Hyperlink("Forgot Username");
         forgotUsernameLink.setOnAction(event -> {
             ForgotUserName forgotUsername = new ForgotUserName(usernameField);
             forgotUsername.showAndWait();
+        });
+        
+        // Hyperlink for forgot Password
+        
+        Hyperlink forgotPasswordLink = new Hyperlink("Forgot Password");
+        forgotPasswordLink.setOnAction(event -> {
+        	ForgotPassword forgotPassword = new ForgotPassword(passwordField);
+        	forgotPassword.showAndWait();
         });
 
         Button loginButton = new Button("Login");
@@ -83,7 +102,7 @@ public class Login extends Stage{
         
         Button signUpButton = new Button("Sign Up");
         signUpButton.setOnAction(event -> {
-//  Present a sign up form for a new user
+// Present a sign up form for a new user
             SignUp signUp = new SignUp();
             signUp.show();
         });
@@ -91,10 +110,11 @@ public class Login extends Stage{
         mainPane.add(statusLabel, 0, 0);
         mainPane.add(headerText, 0, 1);
         mainPane.add(usernameLabel, 0, 2);
-        mainPane.add(new VBox(usernameField), 0, 3);
+//        mainPane.add(new VBox(usernameField), 0, 3);
         mainPane.add(new VBox(usernameField, forgotUsernameLink), 0, 3);
         mainPane.add(passwordLabel, 0, 4);
-        mainPane.add(new VBox(passwordField), 0, 5);
+//        mainPane.add(new VBox(passwordField), 0, 5);
+        mainPane.add(new VBox(passwordField, forgotPasswordLink), 0, 5);
 
         //Added button pane to include sign up option
         HBox buttonPane = new HBox();
