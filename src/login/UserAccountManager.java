@@ -6,7 +6,7 @@ import java.util.function.Consumer;
 
 public class UserAccountManager implements Serializable, Iterable<UserAccount> {
 	public static volatile UserAccountManager accountManager;
-	private volatile HashSet<UserAccount> userAccounts;
+	public static volatile HashSet<UserAccount> userAccounts;
 
 	public UserAccountManager() {
 		userAccounts = new HashSet<>();

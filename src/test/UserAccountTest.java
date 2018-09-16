@@ -3,6 +3,7 @@ package test;
 import junit.framework.TestCase;
 
 import login.UserAccount;
+import login.UserAccountManager;
 
 /**
  * Test UserAccount class.
@@ -11,6 +12,8 @@ import login.UserAccount;
 public class UserAccountTest extends TestCase {
 
 	private UserAccount userAccount;
+	private UserAccountManager userAccountManager;
+
 	
 	/*
 	 * Construct example user account.
@@ -18,6 +21,8 @@ public class UserAccountTest extends TestCase {
 	protected void setUp() throws Exception {
 		super.setUp();
 		userAccount = new UserAccount("johndoe", "12345678", "johndoe@example.com");
+		userAccountManager = new UserAccountManager();
+		userAccountManager.add(userAccount);
 	}
 	
 	/**
@@ -38,10 +43,12 @@ public class UserAccountTest extends TestCase {
 		assertTrue(UserAccount.validUsername("johndoe"));
 	}
 	
-//	 TODO: Test usernameExists()
-//	public void testUserNameExists() {
-//		assertTrue(UserAccount.usernameExists("johndoe"));
-//	}
+	/*
+	 * Tests the userNameExists() method.
+	 */
+	public void testUserNameExists() {
+		assertTrue(UserAccount.usernameExists("johndoe"));
+	}
 	
 	/*
 	 * Tests the validEmail() method.
@@ -52,9 +59,9 @@ public class UserAccountTest extends TestCase {
 	}
 	
 	// TODO: Test emailExists()
-//	public void testEmailExists() {
-//		assertTrue(UserAccount.emailExists("johndoe@example.com"));
-//	}
+	public void testEmailExists() {
+		assertTrue(UserAccount.emailExists("johndoe@example.com"));
+	}
 	
 	/**
 	 * Tests the validatePassword() method.

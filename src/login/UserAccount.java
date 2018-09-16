@@ -40,8 +40,8 @@ public class UserAccount implements Serializable{
 	 * @return True if account exists, false otherwise
 	 */
 	public static boolean usernameExists(String username) {
-		boolean usernameExists = false;
-		for(UserAccount userAccount: UserAccountManager.accountManager) {
+		boolean usernameExists = true;
+		for(UserAccount userAccount: UserAccountManager.userAccounts) {
 			usernameExists |= userAccount.userName.equals(username);
 		}
 		return usernameExists;
@@ -63,7 +63,7 @@ public class UserAccount implements Serializable{
 	 */
 	public static boolean emailExists(String email) {
 		boolean emailExists = false;
-		for(UserAccount userAccount: UserAccountManager.accountManager) {
+		for(UserAccount userAccount: UserAccountManager.userAccounts) {
 			emailExists |= userAccount.email.equals(email);
 		}
 		return emailExists;
